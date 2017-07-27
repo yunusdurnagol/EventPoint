@@ -198,9 +198,16 @@
     <Compile Include="Migrations\201707271938563_InitialMigration.Designer.cs">
       <DependentUpon>201707271938563_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707272111226_CreateEventTable.cs" />
+    <Compile Include="Migrations\201707272111226_CreateEventTable.Designer.cs">
+      <DependentUpon>201707272111226_CreateEventTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -284,6 +291,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707271938563_InitialMigration.resx">
       <DependentUpon>201707271938563_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707272111226_CreateEventTable.resx">
+      <DependentUpon>201707272111226_CreateEventTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
