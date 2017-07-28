@@ -7,13 +7,13 @@ namespace EventPoint.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CreateEventTable : IMigrationMetadata
+    public sealed partial class OverrideConventionsforEvents : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateEventTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(OverrideConventionsforEvents));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707272111226_CreateEventTable"; }
+            get { return "201707280849466_OverrideConventionsforEvents"; }
         }
         
         string IMigrationMetadata.Source

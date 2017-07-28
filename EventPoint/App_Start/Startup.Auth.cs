@@ -1,4 +1,5 @@
 ﻿using System;
+using EventPoint.DataLayer;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

@@ -7,13 +7,13 @@ namespace EventPoint.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialMigration : IMigrationMetadata
+    public sealed partial class CreateEventTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateEventTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707271938563_InitialMigration"; }
+            get { return "201707280846450_CreateEventTable"; }
         }
         
         string IMigrationMetadata.Source

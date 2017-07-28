@@ -1,7 +1,8 @@
 ﻿using System.Data.Entity;
+using EventPoint.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace EventPoint.Models
+namespace EventPoint.DataLayer
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -14,6 +15,14 @@ namespace EventPoint.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new EventConfiguration());
+            modelBuilder.Configurations.Add(new GenreConfiguration());
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
