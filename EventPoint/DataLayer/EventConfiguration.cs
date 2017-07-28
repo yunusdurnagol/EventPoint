@@ -15,7 +15,7 @@ namespace EventPoint.DataLayer
              
             Property(e => e.Venue).IsRequired().HasMaxLength(255);
             Property(e => e.ArtistId).IsRequired();
-            Property(e => e.GenreId).IsRequired();
+            Property(e => e.GenreId).IsRequired();      
         }
     }
 }
