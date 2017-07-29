@@ -86,6 +86,11 @@ label {
 .dropdown-menu {
     font-size: 17px;
 }
-    .dropdown-menu > li > a {
+.dropdown-menu > li > a {
         color: #ff4342;
-    }
+}
+
+span.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
