@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using EventPoint.DataLayer;
+using EventPoint.Models;
 using EventPoint.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace EventPoint.Controllers
 {
@@ -19,7 +22,7 @@ namespace EventPoint.Controllers
             return View();
         }
 
-
+        [Authorize]
         public ActionResult Create()
         {
             var viewModel = new EventFormViewModel()
@@ -29,10 +32,24 @@ namespace EventPoint.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult Create(EventFormViewModel eventFormView)
+        [Authorize]
+        public ActionResult Create(EventFormViewModel eventViewModel)
         {
-            var eventForm = eventFormView;
-            return View("Index");
+            if (!ModelState.IsValid)
+            {
+                eventViewModel.Genres = _context.Genres.ToList();
+                return View("Create", eventViewModel);
+            }
+            var gigEvent=new Event
+            {
+               ArtistId = User.Identity.GetUserId(),
+               DateTime = eventViewModel.GetDateTime(),
+               GenreId = eventViewModel.Genre,
+               Venue = eventViewModel.Venue
+            };
+            _context.Events.Add(gigEvent);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
