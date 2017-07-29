@@ -33,6 +33,7 @@ namespace EventPoint.Controllers
         }
         [HttpPost]
         [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(EventFormViewModel eventViewModel)
         {
             if (!ModelState.IsValid)
