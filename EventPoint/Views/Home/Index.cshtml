@@ -1,5 +1,10 @@
-﻿@{
+﻿@model IEnumerable<EventPoint.Models.Event>
+
+@{
     ViewBag.Title = "Home Page";
 }
-
-EVENT POINT
+<ul>
+@foreach (var Event in Model)
+{
+    <li>@Event.Venue  - @Event.Artist.Name</li>
+}</ul>
