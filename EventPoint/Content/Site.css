@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 90px;
     padding-bottom: 20px;
     font-size: 17px;
 }
@@ -23,6 +23,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.voffset{ margin-top: 2px;}
+.voffset1{ margin-top: 5px;}
+.voffset2{ margin-top: 10px;}
+.voffset3{ margin-top: 20px;}
+.voffset4{ margin-top: 40px;}
+.voffset5{ margin-top: 80px;}
 
 /* Bootstrap Overrides*/
 .navbar-inverse {
@@ -77,8 +84,8 @@ label {
 
 .btn {
    
-    padding: 7px 20px;
-    font-size: 17px;
+    /*padding: 7px 20px;
+    font-size: 17px;*/
     -ms-border-radius: 9px;
     border-radius: 9px;    
 }
@@ -93,4 +100,52 @@ label {
 span.field-validation-error {
     color: red;
     font-weight: bold;
+}
+/*Page Level Styles*/
+.events {
+    list-style: none;
+}
+ 
+.events>li {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.events>li .date {
+    background: red;
+    color: white;
+    text-align: center;
+    width: 60px;
+    -ms-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.events > li .date .month
+    {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 2px 6px;
+    }
+.events > li .date .day
+{
+    background: #f7f7f7;
+    color: #333;
+    font-size: 20px;
+    padding: 6px 12px;
+}
+    .events > li .details {
+        position: absolute;
+        top: 0px;
+        left: 80px;
+        width: 400px;
+    }
+
+    .events > li .details .artist {
+        display: block;
+        font-weight:bold;
+        padding-bottom: 6px;
+    }
+.events > li .details .genre {
+    font-size: 15px;
 }

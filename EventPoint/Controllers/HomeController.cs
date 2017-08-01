@@ -1,8 +1,9 @@
-﻿using System;
+﻿using EventPoint.DataLayer;
+using EventPoint.ViewModels;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using EventPoint.DataLayer;
 
 namespace EventPoint.Controllers
 {
@@ -17,10 +18,18 @@ namespace EventPoint.Controllers
         }
         public ActionResult Index()
         {
-            var upComingEvents=_context.Events.
-                Include(g=>g.Artist).
-                Where(g => g.DateTime > DateTime.Now);
-            return View(upComingEvents);
+
+            var upComingEvents = _context.Events.Include(g => g.Artist)
+                .Include(g => g.Genre)
+                .Where(g => g.DateTime > DateTime.Now).OrderBy(g=>g.DateTime);
+
+            var viewModel = new EventViewsModel
+            {
+                Events=upComingEvents,
+                ShowActions=User.Identity.IsAuthenticated,
+                Heading = "All Upcoming Events"
+            };
+            return View("Events",viewModel);
         }
 
         public ActionResult About()

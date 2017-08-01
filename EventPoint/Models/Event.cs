@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EventPoint.Models
 {
@@ -11,5 +12,7 @@ namespace EventPoint.Models
         public string Venue { get; set; }
         public Genre Genre { get; set; }
         public byte GenreId { get; set; }
+
+        public List<Attendance> Attendances { get; set; }
     }
 }

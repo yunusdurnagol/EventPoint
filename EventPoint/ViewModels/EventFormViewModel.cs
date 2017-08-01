@@ -27,5 +27,6 @@ namespace EventPoint.ViewModels
         public byte Genre { get; set; }
         
         public IEnumerable<Genre> Genres { get; set; }
+     
     }
 }

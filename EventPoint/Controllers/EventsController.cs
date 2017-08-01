@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Data.Entity;
 using EventPoint.DataLayer;
 using EventPoint.Models;
 using EventPoint.ViewModels;
 using Microsoft.AspNet.Identity;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace EventPoint.Controllers
 {
@@ -16,15 +16,29 @@ namespace EventPoint.Controllers
         {
             _context=new ApplicationDbContext();
         }
-        //// GET: Event
-        public ActionResult Index()
+        [Authorize]
+        public ActionResult Attending()
         {
-            return View();
-        }
+            var userid = User.Identity.GetUserId();
+            var events = _context.Attendances.
+                Where(a => a.AttendeeId == userid).
+                Select(a => a.Event).Include(a=>a.Artist).Include(a => a.Genre).ToList();
 
+            var viewModel = new EventViewsModel
+            {
+                Events = events,
+                ShowActions = User.Identity.IsAuthenticated,
+                Heading = "Events I'm Attending"
+                
+                };
+
+
+            return View("Events",viewModel);
+        }
         [Authorize]
         public ActionResult Create()
         {
+
             var viewModel = new EventFormViewModel()
             {
                 Genres = _context.Genres.ToList()
